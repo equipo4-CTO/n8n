@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: starter
+    autoDeploy: true
+    disk:
+      name: n8n-data
+      mountPath: /home/node/.n8n
+      sizeGB: 1
+    envVars:
+      - key: N8N_HOST
+        value: your-service-name.onrender.com
+      - key: N8N_PORT
+        value: "10000"
+      - key: N8N_PROTOCOL
+        value: https
+      - key: WEBHOOK_URL
+        value: https://your-service-name.onrender.com/
+      - key: N8N_EDITOR_BASE_URL
+        value: https://your-service-name.onrender.com/
+      - key: GENERIC_TIMEZONE
+        value: Europe/Madrid
+      - key: N8N_ENCRYPTION_KEY
+        generateValue: true
